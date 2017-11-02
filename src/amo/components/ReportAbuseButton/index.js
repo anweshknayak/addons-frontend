@@ -151,8 +151,10 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
       >
         <div className="ReportAbuseButton--preview">
           <Button
-            className="ReportAbuseButton-show-more Button--report Button--fullwidth"
+            className="ReportAbuseButton-show-more"
             onClick={this.showReportUI}
+            type="report"
+            width="full"
           >
             {prompt}
           </Button>
@@ -195,9 +197,10 @@ export class ReportAbuseButtonBase extends React.Component<Props> {
               {i18n.gettext('Dismiss')}
             </a>
             <Button
-              className="ReportAbuseButton-send-report Button--report Button--small"
+              className="ReportAbuseButton-send-report Button--small"
               disabled={sendButtonIsDisabled}
               onClick={this.sendReport}
+              type="alert"
             >
               {loading ?
                 i18n.gettext('Sending abuse report') :

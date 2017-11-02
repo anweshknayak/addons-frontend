@@ -1,5 +1,6 @@
 @import "~core/css/inc/vars";
 @import "~core/css/inc/mixins";
+@import "~ui/css/vars";
 
 .InstallButton {
   .InstallButton-button {
@@ -24,5 +25,6 @@
 }
 
 .InstallButton-button .Icon-plus {
-  vertical-align: baseline;
+  height: $font-size-m;
+  width: $font-size-m;
 }

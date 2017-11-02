@@ -65,6 +65,8 @@ export class ErrorListBase extends React.Component {
           'The API unexpectedly returned multiple signature expired errors'
         );
       }
+
+      items.push(<Button onClick={action} type="action">{actionText}</Button>);
     }
 
     return (

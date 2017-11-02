@@ -121,10 +121,10 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
             onClick={this.onDismiss}
             className={classNames(
               'DismissibleTextForm-dismiss',
-              'Button--cancel',
               'Button--wide',
             )}
             disabled={isSubmitting}
+            type="cancel"
           >
             {i18n.gettext('Cancel')}
           </Button>
@@ -133,11 +133,11 @@ export class DismissibleTextFormBase extends React.Component<Props, State> {
             onClick={this.onSubmit}
             className={classNames(
               'DismissibleTextForm-submit',
-              'Button--action',
               'Button--wide',
               submitButtonClassName,
             )}
             disabled={submitButtonIsDisabled}
+            type="action"
           >
             {isSubmitting ?
               text.submitButtonInProgressText : text.submitButtonText

@@ -1,12 +1,11 @@
 import classNames from 'classnames';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router';
 
+import Button from 'ui/components/Button';
 
 export default class PaginatorLink extends React.Component {
   static propTypes = {
-    LinkComponent: PropTypes.func,
     className: PropTypes.string,
     currentPage: PropTypes.number.isRequired,
     pathname: PropTypes.string.isRequired,
@@ -16,15 +15,10 @@ export default class PaginatorLink extends React.Component {
     text: PropTypes.string,
   }
 
-  static defaultProps = {
-    LinkComponent: Link,
-  }
-
   render() {
     const {
       className,
       currentPage,
-      LinkComponent,
       page,
       pageCount,
       pathname,
@@ -47,22 +41,24 @@ export default class PaginatorLink extends React.Component {
 
     if (currentPage === page || page < 1 || page > pageCount) {
       return (
-        <span
+        <Button
           key={page}
           className={classNames('Paginate-item', 'disabled', className)}
+          type="light"
         >
           {text || page}
-        </span>
+        </Button>
       );
     }
 
     return (
-      <LinkComponent
+      <Button
         to={{ pathname, query: { ...queryParams, page } }}
         className={classNames('Paginate-item', className)}
+        type="light"
       >
         {text || page}
-      </LinkComponent>
+      </Button>
     );
   }
 }

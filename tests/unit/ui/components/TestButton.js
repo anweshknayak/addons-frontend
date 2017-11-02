@@ -10,7 +10,7 @@ describe('<Button />', () => {
   it('renders a button', () => {
     const onClick = sinon.spy();
     const button = shallow(
-      <Button className="Foo" onClick={onClick}>My button!</Button>);
+      <Button className="Foo" onClick={onClick} type="none">My button!</Button>);
 
     expect(button.type()).toEqual('button');
     expect(button).toHaveClassName('Button');
@@ -22,7 +22,7 @@ describe('<Button />', () => {
   it('renders an in-app link with a to prop', () => {
     const href = '/profile/';
     const button = shallow(
-      <Button className="Bar" to={href}>Link text!</Button>);
+      <Button className="Bar" to={href} type="none">Link text!</Button>);
 
     expect(button.type()).toEqual(Link);
     expect(button).toHaveClassName('Button');
@@ -34,7 +34,7 @@ describe('<Button />', () => {
   it('renders a link with a href', () => {
     const href = 'https://addons.mozilla.org';
     const button = shallow(
-      <Button className="Bar" href={href}>Link text!</Button>);
+      <Button className="Bar" href={href} type="none">Link text!</Button>);
 
     expect(button.type()).toEqual(Link);
     expect(button).toHaveClassName('Button');
@@ -52,6 +52,7 @@ describe('<Button />', () => {
         disabled
         href="https://addons.mozilla.org"
         onClick={onClick}
+        type="none"
       >
         Link text!
       </Button>
@@ -70,6 +71,7 @@ describe('<Button />', () => {
         className="CustomClass"
         disabled
         href="https://addons.mozilla.org"
+        type="none"
       >
         Link text!
       </Button>

@@ -228,8 +228,9 @@ export class LandingPageBase extends React.Component {
         <Categories addonType={addonType} />
 
         <Button
-          className="LandingPage-button Button--light"
+          className="LandingPage-button"
           to={`/${getVisibleAddonType(addonType)}/categories/`}
+          type="light"
         >
           {i18n.gettext('Explore all categories')}
         </Button>

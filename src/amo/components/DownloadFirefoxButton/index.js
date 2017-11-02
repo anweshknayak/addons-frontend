@@ -34,11 +34,11 @@ export const DownloadFirefoxButtonBase = ({
       className={classNames(
         'DownloadFirefoxButton',
         'Button',
-        'Button--confirm',
         'Button--small',
         className,
       )}
       href={`https://www.mozilla.org/firefox/new/${queryString}`}
+      type="confirm"
     >
       {i18n.gettext('Download Firefox')}
     </Button>

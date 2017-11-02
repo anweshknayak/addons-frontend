@@ -6,8 +6,19 @@ import PropTypes from 'prop-types';
 import Link from 'amo/components/Link';
 import log from 'core/logger';
 
+import './styles.scss';
 
-import './Button.scss';
+
+const BUTTON_TYPES = [
+  'neutral',
+  'light',
+  'action',
+  'cancel',
+  'confirm',
+  'alert',
+  'report',
+  'none',
+];
 
 export default class Button extends React.Component {
   static propTypes = {
@@ -16,6 +27,8 @@ export default class Button extends React.Component {
     disabled: PropTypes.boolean,
     href: PropTypes.string,
     to: PropTypes.string,
+    type: PropTypes.string,
+    width: PropTypes.string,
   }
 
   render() {
@@ -24,12 +37,22 @@ export default class Button extends React.Component {
       className,
       href,
       to,
+      type,
+      width,
       ...rest
     } = this.props;
     const props = { ...rest };
 
+    if (!type || !BUTTON_TYPES.includes(type)) {
+      throw new Error(`"${type}" supplied but that is not a valid button type`);
+    }
+
     const setClassName = (...classConfig) => {
-      return classNames('Button', className, ...classConfig);
+      return classNames(
+        'Button', `Button--${type}`, className, ...classConfig, {
+          width: `Button--width-${width}`,
+        },
+      );
     };
 
     if (href || to) {

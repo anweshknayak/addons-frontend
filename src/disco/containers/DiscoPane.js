@@ -23,6 +23,7 @@ import Addon from 'disco/components/Addon';
 import videoPoster from 'disco/img/AddOnsPoster.jpg';
 import videoMp4 from 'disco/video/AddOns.mp4';
 import videoWebm from 'disco/video/AddOns.webm';
+import Button from 'ui/components/Button';
 
 
 export class DiscoPaneBase extends React.Component {
@@ -170,14 +171,15 @@ export class DiscoPaneBase extends React.Component {
           />
         ))}
         <div className="amo-link">
-          <a
+          <Button
             href="https://addons.mozilla.org/"
             target="_blank"
             rel="noopener noreferrer"
             onClick={this.showMoreAddons}
+            type="action"
           >
             {i18n.gettext('See more add-ons!')}
-          </a>
+          </Button>
         </div>
         <InfoDialog />
       </div>

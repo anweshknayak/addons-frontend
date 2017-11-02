@@ -53,9 +53,13 @@ $font-size-header-title: 34px;
 
 // Border radius sizes
 $border-radius-default: 9px;
-$border-radius-s: 4px;
-$border-radius-m: 8px;
+$border-radius-s: 3px;
+$border-radius-m: 6px;
+$border-radius-l: 12px;
 
 // Hero
 $hero-title-font-size: 33px;
 $hero-subtitle-font-size: 22px;
+
+// Animation
+$easing-curve: cubic-bezier(0.07, 0.95, 0, 1);
