@@ -26,9 +26,16 @@ export default class Button extends React.Component {
     className: PropTypes.string,
     disabled: PropTypes.boolean,
     href: PropTypes.string,
+    puffy: PropTypes.boolean,
+    small: PropTypes.boolean,
     to: PropTypes.string,
     type: PropTypes.string,
     width: PropTypes.string,
+  }
+
+  static defaultProps = {
+    puffy: false,
+    small: false,
   }
 
   render() {
@@ -36,6 +43,8 @@ export default class Button extends React.Component {
       children,
       className,
       href,
+      puffy,
+      small,
       to,
       type,
       width,
@@ -50,7 +59,9 @@ export default class Button extends React.Component {
     const setClassName = (...classConfig) => {
       return classNames(
         'Button', `Button--${type}`, className, ...classConfig, {
-          width: `Button--width-${width}`,
+          'Button--small': small,
+          [`Button--puffy`]: puffy,
+          [`Button--width-${width}`]: width,
         },
       );
     };
